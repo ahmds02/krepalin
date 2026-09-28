@@ -1,0 +1,112 @@
+/* ---------- Warna & ukuran dasar (mudah diubah di satu tempat) ---------- */
+:root {
+  --bg: #e9edf3;
+  --panel: #ffffff;
+  --text: #16202f;
+  --muted: #7b8798;
+  --key-bg: #f2f5f9;
+  --clear-bg: #e3e8ef;
+  --enter-bg: #0f766e;
+  --enter-text: #ffffff;
+  --gap: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;                 /* tinggi layar HP yang akurat */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ---------- Mobile-first: hampir selebar layar ---------- */
+.calculator {
+  width: 100%;
+  max-width: 400px;                   /* di desktop dibatasi 400px */
+  margin: 16px;                       /* margin agar tidak menempel tepi layar */
+  padding: 14px;
+  background: var(--panel);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(22, 32, 47, 0.12);
+}
+
+/* ---------- Display ---------- */
+.display {
+  min-height: 150px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.display-expression {
+  min-height: 1.6rem;
+  font-size: 1.4rem;
+  color: var(--muted);
+}
+
+.display-main {
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Keypad: 3 kolom yang sama lebar ---------- */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+.key {
+  height: 76px;                       /* besar & nyaman untuk jempol */
+  border: none;
+  border-radius: 18px;
+  background: var(--key-bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.1s ease, filter 0.1s ease;
+}
+
+.key-clear {
+  background: var(--clear-bg);
+  font-size: 1.05rem;
+}
+
+.key-enter {
+  background: var(--enter-bg);
+  color: var(--enter-text);
+  font-size: 1.05rem;
+}
+
+/* ---------- Feedback saat ditekan: tombol sedikit mengecil ---------- */
+.key:active {
+  transform: scale(0.94);
+  filter: brightness(0.92);
+}
+
+.key:focus-visible {
+  outline: 3px solid var(--enter-bg);
+  outline-offset: 2px;
+}
+
+/* ---------- Layar sangat kecil ---------- */
+@media (max-width: 360px) {
+  .key { height: 66px; }
+  .display-main { font-size: 3.8rem; }
+}

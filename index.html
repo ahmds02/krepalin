@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <!-- viewport: wajib agar tampilan pas di layar HP -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalkulator Digit Terakhir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="calculator">
+
+    <!-- Layar: baris atas = ekspresi (mis. "6 + 9"), baris bawah = angka utama -->
+    <section class="display" aria-live="polite">
+      <div class="display-expression" id="expression"></div>
+      <div class="display-main" id="main">0</div>
+    </section>
+
+    <!-- Keypad: tombol angka membawa nilainya lewat atribut data-number -->
+    <section class="keypad">
+      <button class="key" data-number="1">1</button>
+      <button class="key" data-number="2">2</button>
+      <button class="key" data-number="3">3</button>
+
+      <button class="key" data-number="4">4</button>
+      <button class="key" data-number="5">5</button>
+      <button class="key" data-number="6">6</button>
+
+      <button class="key" data-number="7">7</button>
+      <button class="key" data-number="8">8</button>
+      <button class="key" data-number="9">9</button>
+
+      <button class="key" data-number="0">0</button>
+      <button class="key key-clear" id="clearButton">CLEAR</button>
+      <button class="key key-enter" id="enterButton">ENTER</button>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
